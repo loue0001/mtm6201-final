@@ -1,0 +1,466 @@
+/* Google font */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+/* Bootstrap and custom variables */
+:root {
+    --bs-primary: #356b12;
+    --bs-primary-rgb: 53, 107, 18;
+    --bs-body-color: #26301f;
+    --bs-body-bg: #fffdf8;
+    --bs-link-color: #356b12;
+    --bs-link-hover-color: #244a0c;
+
+    --green-dark: #244a0c;
+    --green-primary: #356b12;
+    --green-light: #eaf1df;
+    --cream: #f6f2e9;
+    --white: #ffffff;
+    --text-dark: #26301f;
+    --text-muted: #62695d;
+    --border-color: #ddd8cc;
+    --shadow: 0 0.4rem 1.25rem rgb(38 48 31 / 12%);
+    --transition: 0.25s ease;
+}
+
+/* General styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: var(--bs-body-bg);
+    color: var(--text-dark);
+    font-family: "DM Sans", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+.navbar-brand {
+    color: var(--green-dark);
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+}
+
+h1 {
+    line-height: 1.1;
+}
+
+h2 {
+    line-height: 1.2;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+section {
+    scroll-margin-top: 5rem;
+}
+
+a,
+button,
+.btn {
+    transition:
+        color var(--transition),
+        background-color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        transform var(--transition);
+}
+
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.form-control:focus,
+.form-select:focus {
+    outline: 0.2rem solid #efb93f;
+    outline-offset: 0.2rem;
+}
+
+/* Accessibility skip link */
+.visually-hidden-focusable:focus {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2000;
+    width: auto;
+    height: auto;
+    padding: 0.75rem 1rem;
+    overflow: visible;
+    background-color: var(--white);
+    color: var(--green-dark);
+    clip: auto;
+    white-space: normal;
+    border: 0.15rem solid var(--green-dark);
+    border-radius: 0.4rem;
+}
+
+/* Navigation */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: rgb(255 253 248 / 96%);
+    border-bottom: 0.06rem solid var(--border-color);
+    backdrop-filter: blur(0.6rem);
+}
+
+.navbar {
+    min-height: 4.5rem;
+}
+
+.navbar-brand {
+    color: var(--green-primary);
+    font-size: 1.35rem;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: var(--green-dark);
+}
+
+.navbar-toggler {
+    border-color: var(--green-primary);
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 0.2rem rgb(53 107 18 / 25%);
+}
+
+.nav-link {
+    position: relative;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.nav-link:hover,
+.nav-link:focus,
+.nav-link.active {
+    color: var(--green-primary);
+}
+
+.nav-link::after {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.25rem;
+    left: 0.5rem;
+    height: 0.12rem;
+    background-color: var(--green-primary);
+    content: "";
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link.active::after {
+    transform: scaleX(1);
+}
+
+/* Buttons */
+.btn {
+    padding: 0.7rem 1.25rem;
+    font-weight: 700;
+    border-radius: 0.4rem;
+}
+
+.btn-primary {
+    --bs-btn-color: #ffffff;
+    --bs-btn-bg: #356b12;
+    --bs-btn-border-color: #356b12;
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #244a0c;
+    --bs-btn-hover-border-color: #244a0c;
+    --bs-btn-focus-shadow-rgb: 53, 107, 18;
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: #1c3b08;
+    --bs-btn-active-border-color: #1c3b08;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #356b12;
+    --bs-btn-border-color: #356b12;
+    --bs-btn-hover-color: #ffffff;
+    --bs-btn-hover-bg: #356b12;
+    --bs-btn-hover-border-color: #356b12;
+    --bs-btn-active-color: #ffffff;
+    --bs-btn-active-bg: #244a0c;
+    --bs-btn-active-border-color: #244a0c;
+}
+
+.btn:hover {
+    transform: translateY(-0.12rem);
+}
+
+/* Hero section */
+.hero {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(
+            circle at top left,
+            rgb(234 241 223 / 85%),
+            transparent 42%
+        ),
+        var(--bs-body-bg);
+}
+
+.hero h1 {
+    max-width: 11ch;
+    font-size: clamp(2.5rem, 7vw, 4.8rem);
+}
+
+.hero .lead {
+    max-width: 38rem;
+    margin: 1.5rem 0;
+    color: var(--text-muted);
+}
+
+.hero img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+/* Featured dishes */
+.featured-dishes {
+    background-color: var(--cream);
+}
+
+.featured-dishes h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.card {
+    overflow: hidden;
+    background-color: var(--white);
+    border: 0.06rem solid var(--border-color);
+    border-radius: 0.65rem;
+    box-shadow: 0 0.2rem 0.65rem rgb(38 48 31 / 7%);
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+.card:hover,
+.card:focus-within {
+    box-shadow: var(--shadow);
+    transform: translateY(-0.35rem);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 14rem;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.03);
+}
+
+.card-title {
+    color: var(--green-dark);
+}
+
+.card-text {
+    color: var(--text-muted);
+}
+
+.price {
+    margin-bottom: 0;
+    color: var(--green-primary);
+    font-size: 1.15rem;
+}
+
+/* Reservation call to action */
+.reservation-cta {
+    background-color: var(--bs-body-bg);
+}
+
+.cta-box {
+    background-color: var(--green-dark);
+    color: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.cta-box h2 {
+    color: var(--white);
+}
+
+.cta-box p {
+    color: #eef4e8;
+}
+
+.cta-box .btn-light {
+    color: var(--green-dark);
+    font-weight: 700;
+}
+
+.cta-box .btn-light:hover,
+.cta-box .btn-light:focus {
+    background-color: var(--green-light);
+    color: var(--green-dark);
+}
+
+/* About section */
+.about {
+    background-color: var(--white);
+}
+
+.about img,
+.sustainability img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+}
+
+.about p,
+.sustainability p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+/* Sustainability section */
+.sustainability {
+    background-color: var(--green-light);
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--cream);
+    color: var(--text-dark);
+    border-top: 0.06rem solid var(--border-color);
+}
+
+.site-footer h2 {
+    color: var(--green-dark);
+}
+
+.site-footer a {
+    color: var(--text-dark);
+    text-decoration-color: transparent;
+    text-underline-offset: 0.2rem;
+}
+
+.site-footer a:hover,
+.site-footer a:focus {
+    color: var(--green-primary);
+    text-decoration-color: currentcolor;
+}
+
+.site-footer li {
+    margin-bottom: 0.5rem;
+}
+
+.site-footer address {
+    font-style: normal;
+}
+
+.site-footer hr {
+    margin: 2rem 0 1.25rem;
+    border-color: var(--border-color);
+}
+
+/* Form styles for the reservations page */
+.form-control,
+.form-select {
+    min-height: 3rem;
+    border-color: var(--border-color);
+}
+
+textarea.form-control {
+    min-height: 8rem;
+}
+
+.form-control:hover,
+.form-select:hover {
+    border-color: var(--green-primary);
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--green-primary);
+    box-shadow: 0 0 0 0.2rem rgb(53 107 18 / 18%);
+}
+
+/* Tablet screens */
+@media (min-width: 768px) {
+    .hero img {
+        height: 26rem;
+    }
+
+    .about img,
+    .sustainability img {
+        height: 24rem;
+    }
+
+    .card-img-top {
+        height: 15rem;
+    }
+}
+
+/* Desktop screens */
+@media (min-width: 992px) {
+    .navbar {
+        min-height: 5rem;
+    }
+
+    .nav-link {
+        margin-inline: 0.15rem;
+    }
+
+    .hero {
+        min-height: calc(100vh - 5rem);
+    }
+
+    .hero img {
+        height: 34rem;
+    }
+
+    .about img,
+    .sustainability img {
+        height: 28rem;
+    }
+}
+
+/* Very large screens */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1500px;
+    }
+
+    body {
+        font-size: 1.1rem;
+    }
+
+    .hero img {
+        height: 40rem;
+    }
+}
+
+/* Reduced-motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
